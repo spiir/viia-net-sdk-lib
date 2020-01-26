@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viia", "Viia\Viia.csproj", "{75B7B2B9-9476-45DB-9A01-EDB33EC04D62}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{75B7B2B9-9476-45DB-9A01-EDB33EC04D62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75B7B2B9-9476-45DB-9A01-EDB33EC04D62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75B7B2B9-9476-45DB-9A01-EDB33EC04D62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75B7B2B9-9476-45DB-9A01-EDB33EC04D62}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {72FFBCF9-0304-4814-B064-ACA7F620ECE9}
+	EndGlobalSection
+EndGlobal
