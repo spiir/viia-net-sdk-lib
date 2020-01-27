@@ -1,11 +1,11 @@
-﻿using System;
+﻿#if NETSTANDARD
+using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Polly;
 using Viia.Core.Http;
 
-#if NETSTANDARD
 namespace Viia.NetStandard
 {
     public class DefaultHttpClient : IHttpClient

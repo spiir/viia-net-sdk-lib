@@ -1,4 +1,10 @@
-﻿namespace Viia.Core.Config.Configurers
+﻿using System.Diagnostics;
+using Viia.Core.Logging;
+using Viia.Core.Logging.Console;
+using Viia.Core.Logging.Debug;
+using Viia.Core.Logging.Null;
+
+namespace Viia.Core.Config.Configurers
 {
     /// <summary>
     ///     Configuration builder for configuring logging
@@ -31,7 +37,7 @@
         /// </summary>
         public void UseConsole(Logger.Level minLevel = Logger.Level.Info)
         {
-            Use(new ConsoleLoggerFactory(minLevel: minLevel));
+            Use(new ConsoleLoggerFactory(minLevel));
         }
 
         /// <summary>
@@ -39,7 +45,7 @@
         /// </summary>
         public void UseDebug(Logger.Level minLevel = Logger.Level.Info)
         {
-            Use(new DebugLoggerFactory(minLevel: minLevel));
+            Use(new DebugLoggerFactory(minLevel));
         }
     }
 }

@@ -58,13 +58,13 @@ namespace Viia.Core.Config.Configurers
             if (primary.Any())
             {
                 builder.AppendLine(@"    Primary:");
-                builder.AppendLine(string.Join(Environment.NewLine, primary.Select(p => $"        {p.Type}")));
+                builder.AppendLine(string.Join(System.Environment.NewLine, primary.Select(p => $"        {p.Type}")));
             }
 
             if (decorators.Any())
             {
                 builder.AppendLine(@"    Decorators:");
-                builder.AppendLine(string.Join(Environment.NewLine, decorators.Select(p => $"        {p.Type}")));
+                builder.AppendLine(string.Join(System.Environment.NewLine, decorators.Select(p => $"        {p.Type}")));
             }
 
             return builder.ToString();

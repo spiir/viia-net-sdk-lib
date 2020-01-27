@@ -1,4 +1,6 @@
-﻿namespace Viia.Core.Config
+﻿using Viia.Core.Logging;
+
+namespace Viia.Core.Config
 {
     /// <summary>
     ///     Represents additional options for how Viia does its thing
@@ -31,8 +33,8 @@
         /// </summary>
         public ViiaLoggerFactory GlobalLoggerFactory
         {
-            get { return ViiaLoggerFactory.Current; }
-            set { ViiaLoggerFactory.Current = value; }
+            get => ViiaLoggerFactory.Current;
+            set => ViiaLoggerFactory.Current = value;
         }
 
         /// <summary>

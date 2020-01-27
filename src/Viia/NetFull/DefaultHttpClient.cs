@@ -1,14 +1,25 @@
-﻿using System.Threading.Tasks;
+﻿#if NETFRAMEWORK
+using System;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
+using Polly;
 using Viia.Core.Http;
 
-#if NETFRAMEWORK
 namespace Viia.NetFull
 {
     public class DefaultHttpClient : IHttpClient
     {
-        public Task<TOut> Execute<TOut, TIn>()
+        private readonly IAsyncPolicy _policy;
+
+        public Task<TOut> Execute<TOut, TIn>(string relativeUrl,
+                                             HttpMethod method,
+                                             TIn body,
+                                             CancellationToken cancellationToken,
+                                             TimeSpan? timeout = null,
+                                             string accessToken = null)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }
