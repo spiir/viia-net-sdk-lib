@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Viia.Core.Execptions;
+using Viia.Core.Http;
 using Viia.Core.Tokens;
 
 namespace Viia.Core.Config.Configurers
@@ -56,12 +57,13 @@ namespace Viia.Core.Config.Configurers
                                              var options = new Options();
 
                                              var tokenRepository = context.Get<ITokenRepository>();
+                                             var httpClient = context.Get<IHttpClient>();
 
                                              context.GetAll<Action<Options>>()
                                                     .ToList()
                                                     .ForEach(action => action(options));
 
-                                             var client = new Client(tokenRepository, options);
+                                             var client = new Client(tokenRepository, httpClient, options);
 
                                              client.Disposed += context.Dispose;
 
@@ -72,6 +74,9 @@ namespace Viia.Core.Config.Configurers
 
             if (!_container.HasService<ITokenRepository>(true))
                 _container.Register<ITokenRepository>(context => new DefaultTokenRepository());
+
+            if (!_container.HasService<IHttpClient>(true))
+                _container.Register<IHttpClient>(context => new DefaultHttpClient());
 
             //if (!_container.HasService<IDomainEventSerializer>(true))
             //{

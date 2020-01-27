@@ -8,6 +8,11 @@ namespace Viia.Core.Config
     public class Options
     {
         /// <summary>
+        ///     Default number of retries for command processing
+        /// </summary>
+        public const Version DefaultApiVersion = Version.V1;
+
+        /// <summary>
         ///     Default environment to perform request against
         /// </summary>
         public const Environment DefaultEnvironment = Environment.Sandbox;
@@ -16,6 +21,11 @@ namespace Viia.Core.Config
         ///     Default number of retries for command processing
         /// </summary>
         public const int DefaultMaxRetries = 3;
+
+        /// <summary>
+        ///     Default version to perform request against
+        /// </summary>
+        public Version ApiVersion { get; set; }
 
         /// <summary>
         ///     Configures the environment to perform request against.
@@ -44,6 +54,7 @@ namespace Viia.Core.Config
         {
             MaxRetries = DefaultMaxRetries;
             Environment = DefaultEnvironment;
+            ApiVersion = DefaultApiVersion;
         }
     }
 }

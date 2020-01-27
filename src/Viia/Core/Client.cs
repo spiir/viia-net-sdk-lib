@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Viia.Core.Config;
 using Viia.Core.Config.Configurers;
+using Viia.Core.Http;
 using Viia.Core.Logging;
 using Viia.Core.Tokens;
 
@@ -12,6 +13,7 @@ namespace Viia.Core
         private static Logger _logger;
 
         private readonly ITokenRepository _tokenRepository;
+        private readonly IHttpClient _httpClient;
 
         private bool _disposed;
 
@@ -28,10 +30,11 @@ namespace Viia.Core
             ViiaLoggerFactory.Changed += f => _logger = f.GetCurrentClassLogger();
         }
 
-        public Client(ITokenRepository tokenRepository, Options options)
+        public Client(ITokenRepository tokenRepository, IHttpClient httpClient, Options options)
         {
             _tokenRepository = tokenRepository ?? throw new ArgumentNullException(nameof(tokenRepository));
             Options = options ?? throw new ArgumentNullException(nameof(options));
+            _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
         }
 
         ~Client()
@@ -85,6 +88,7 @@ namespace Viia.Core
             if (disposing)
             {
                 _logger.Info("Disposing client");
+                _httpClient.Dispose();
 
                 _disposed = true;
 
